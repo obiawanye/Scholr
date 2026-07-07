@@ -23,10 +23,10 @@ Current technologies:
 
 * HTML5
 * CSS3
+* JavaScript
 
 Planned technologies:
 
-* JavaScript
 * React
 * Node.js
 * Express.js
