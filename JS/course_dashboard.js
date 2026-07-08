@@ -30,6 +30,23 @@ document.getElementById('removeCourse').addEventListener('click', function() {
     }
 });
 
+document.getElementById('editCourse').addEventListener('click', function() {
+    let courseName = addCourse.value.trim();
+    let index = courseList.indexOf(courseName);
+    if (index !== -1) {
+        let newCourseName = prompt('Enter the new course name:', courseName);
+        if (newCourseName) {
+            courseList[index] = newCourseName.trim();
+            console.log(`Edited course: ${courseName} to ${newCourseName}`);
+            addCourse.value = ''; // Clear the input field after editing
+        } else {
+            console.log('No new course name provided.');
+        }
+    } else {
+        console.log(`Course not found: ${courseName}`);
+    }
+});
+
 document.getElementById('displayCourses').addEventListener('click', function() {
     if (courseList.length > 0) {
         console.log('Courses:', courseList.join(', '));
