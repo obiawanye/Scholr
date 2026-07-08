@@ -47,6 +47,15 @@ document.getElementById('editCourse').addEventListener('click', function() {
     }
 });
 
+document.getElementById('searchCourse').addEventListener('click', function() {
+    let courseName = addCourse.value.trim();
+    if (courseList.includes(courseName)) {
+        console.log(`Course found: ${courseName}`);
+    } else {
+        console.log(`Course not found: ${courseName}`);
+    }
+});
+
 document.getElementById('displayCourses').addEventListener('click', function() {
     if (courseList.length > 0) {
         console.log('Courses:', courseList.join(', '));
