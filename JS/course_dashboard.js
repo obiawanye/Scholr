@@ -47,21 +47,31 @@ document.getElementById('editCourse').addEventListener('click', function() {
     }
 });
 
-document.getElementById('searchCourse').addEventListener('click', function() {
-    let courseName = addCourse.value.trim();
-    if (courseList.includes(courseName)) {
-        console.log(`Course found: ${courseName}`);
-    } else {
-        console.log(`Course not found: ${courseName}`);
-    }
-});
+document.getElementById("displayCourses").addEventListener("click", function () {
 
-document.getElementById('displayCourses').addEventListener('click', function() {
-    if (courseList.length > 0) {
-        console.log('Courses:', courseList.join(', '));
-        document.getElementById('courseList').innerText = `Courses: ${courseList.join(', ')}`;
-    } else {
-        console.log('No courses available.');
-        document.getElementById('courseList').innerText = 'No courses available.';
+    const courseListDiv = document.getElementById("courseList");
+
+    // Clear the dashboard before displaying everything again
+    courseListDiv.innerHTML = "";
+
+    if (courseList.length === 0) {
+        courseListDiv.innerText = "No courses available.";
+        return;
     }
+
+    for (let course of courseList) {
+
+        // Create a new card
+        const courseCard = document.createElement("div");
+
+        // Give it a CSS class
+        courseCard.classList.add("course-card");
+
+        // Put the course name inside it
+        courseCard.innerText = course;
+
+        // Add the card to the dashboard
+        courseListDiv.appendChild(courseCard);
+    }
+
 });
